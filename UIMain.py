@@ -1,12 +1,12 @@
 import pycuber as pc
-from SimpleSolver.HumanSolver import HumanSolver as Solver
+from SimpleSolver.SimpleSolver import SimpleSolver as Solver
 from SimpleSolver.util import Solved
 
 def UIMainTesting():
     c = pc.Cube()
     alg = pc.Formula()
     random_alg = alg.random()
-    c(random_alg)
+    #c(random_alg)
     cStr = c.__str__()
     cStr = (cStr.replace('[', '')).replace(']','')
     cStr = cStr.split()
@@ -20,9 +20,9 @@ def UIMainTesting():
     cubeDict["G"] = row1[3] + row1[4] + row1[5] + row2[3] + row2[4] + row2[5] + row3[3] + row3[4] + row3[5]
     cubeDict["O"] = row1[6] + row1[7] + row1[8] + row2[6] + row2[7] + row2[8] + row3[6] + row3[7] + row3[8]
     cubeDict["B"] = row1[9] + row1[10] + row1[11] + row2[9] + row2[10] + row2[11] + row3[9] + row3[10] + row3[11]
-
     print(c.select_type("edge"))
-    print(c.get_face("U"))
+    print(list(list(c.select_type("edge"))[0].facings)[1])
+
     
 def UIMain():
     c = pc.Cube()
@@ -43,5 +43,5 @@ def UIMain():
 
     
 
-#UIMainTesting()
-UIMain()
+UIMainTesting()
+#UIMain()
