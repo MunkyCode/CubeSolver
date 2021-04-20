@@ -1,5 +1,6 @@
 import pycuber as pc
-from SimpleSolver.SimpleSolver import SimpleSolver as Solver
+from SimpleSolver.HumanSolver import HumanSolver as Solver
+from SimpleSolver.util import Solved
 
 def UIMainTesting():
     c = pc.Cube()
@@ -28,6 +29,7 @@ def UIMain():
 
     #Shuffle the Cube
     c(pc.Formula().random())
+    #c("U D L R")
 
     print(c)
 
@@ -36,6 +38,8 @@ def UIMain():
     S.Solve(c)
 
     print(c)
+    
+
 
     
 
