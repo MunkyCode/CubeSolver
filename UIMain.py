@@ -1,5 +1,5 @@
 import pycuber as pc
-#import SimpleSolver
+import SimpleSolver.SimpleSolver
 
 def UIMain():
     c = pc.Cube()
@@ -21,7 +21,7 @@ def UIMain():
     cubeDict["B"] = row1[9] + row1[10] + row1[11] + row2[9] + row2[10] + row2[11] + row3[9] + row3[10] + row3[11]
 
     print(c.select_type("edge"))
-    print(c.get_face("U"))
+    print(c.get_face("U").__str__())
     
 
     

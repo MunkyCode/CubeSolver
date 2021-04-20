@@ -1,3 +1,0 @@
-from .SimpleSolver import SimpleSolver
-
-
