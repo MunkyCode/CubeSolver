@@ -1,7 +1,7 @@
 import pycuber as pc
-import SimpleSolver.SimpleSolver
+from SimpleSolver.SimpleSolver import SimpleSolver as Solver
 
-def UIMain():
+def UIMainTesting():
     c = pc.Cube()
     alg = pc.Formula()
     random_alg = alg.random()
@@ -21,9 +21,23 @@ def UIMain():
     cubeDict["B"] = row1[9] + row1[10] + row1[11] + row2[9] + row2[10] + row2[11] + row3[9] + row3[10] + row3[11]
 
     print(c.select_type("edge"))
-    print(c.get_face("U").__str__())
+    print(c.get_face("U"))
     
+def UIMain():
+    c = pc.Cube()
+
+    #Shuffle the Cube
+    c(pc.Formula().random())
+
+    print(c)
+
+    S = Solver()
+
+    S.Solve(c)
+
+    print(c)
 
     
 
+#UIMainTesting()
 UIMain()

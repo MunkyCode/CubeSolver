@@ -1,2 +1,4 @@
 class SimpleSolver:
-    pass    
+
+    def Solve(self, cube):
+        pass    
