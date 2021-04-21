@@ -20,9 +20,22 @@ def UIMainTesting():
     cubeDict["G"] = row1[3] + row1[4] + row1[5] + row2[3] + row2[4] + row2[5] + row3[3] + row3[4] + row3[5]
     cubeDict["O"] = row1[6] + row1[7] + row1[8] + row2[6] + row2[7] + row2[8] + row3[6] + row3[7] + row3[8]
     cubeDict["B"] = row1[9] + row1[10] + row1[11] + row2[9] + row2[10] + row2[11] + row3[9] + row3[10] + row3[11]
-    print(c.select_type("edge"))
-    print(list(list(c.select_type("edge"))[0].facings)[1])
+    #print(c.select_type("edge"))
+    #print(list(c.select_type("edge")))
+    temp = list(list(c.select_type("edge"))[0].children)
+    temp2 = list(list(c.select_type("edge"))[0].facings)
+    #print(list(list(c.select_type("edge"))[0]))
+    #print(temp[0], temp2[0], temp[1], temp2[1])
 
+    
+    #Get a set of the edges for the side down ("D"). Take an edge and get the square on side edge["side"] and convert to string square.__str__()
+    setEdge = (c.has_colour(c["D"].colour) & c.select_type("edge"))
+    print(setEdge)
+    for i in setEdge:
+        child = list(i.facings)
+        print(i[child[0]].__str__())
+   
+    
     
 def UIMain():
     c = pc.Cube()
