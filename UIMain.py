@@ -34,6 +34,8 @@ def UIMainTesting():
     for i in setEdge:
         child = list(i.facings)
         print(i[child[0]].__str__())
+
+    
    
     
     
@@ -41,9 +43,9 @@ def UIMain():
     c = pc.Cube()
 
     #Shuffle the Cube
-    c(pc.Formula().random())
+    #c(pc.Formula().random())
     #c("U D L R")
-
+    c("D")
     print(c)
 
     S = Solver()
@@ -56,5 +58,5 @@ def UIMain():
 
     
 
-UIMainTesting()
-#UIMain()
+#UIMainTesting()
+UIMain()
