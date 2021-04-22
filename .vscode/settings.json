@@ -7,5 +7,5 @@
         "--disable", "W0614",
         "--disable", "W0622"
     ],
-    "python.pythonPath": "C:\\Users\\Stephen\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+    "python.pythonPath": "C:\\Users\\sjwel\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }

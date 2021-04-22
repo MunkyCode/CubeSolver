@@ -43,7 +43,7 @@ def UIMain():
     c = pc.Cube()
 
     #Shuffle the Cube
-    #c(pc.Formula().random())
+    c(pc.Formula().random())
     #c("U D L R")
     c("D")
     print(c)
