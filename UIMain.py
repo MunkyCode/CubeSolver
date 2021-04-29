@@ -2,6 +2,10 @@ import pycuber as pc
 from pycuber.solver import CFOPSolver
 from SimpleSolver.HumanSolver import HumanSolver as Solver
 from SimpleSolver.util import Solved
+import kociemba
+import time
+import os
+import re
 
 def UIMainTesting():
     c = pc.Cube()
@@ -42,20 +46,41 @@ def UIMainTesting():
     
     
 def UIMain():
-    c = pc.Cube()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    timeS = time.time()
+    for y in range(100):
+        with open(dir_path + "/cubeX.csv", "a+") as X:
+            with open(dir_path + "/cubeY.csv", "a+") as Y:
+                for x in range(100):
+                    c = pc.Cube()
+                    c(pc.Formula().random())
+                    cStr = c.__str__()
+                    cStr = (cStr.replace('[', '')).replace(']','')
+                    cStr = cStr.replace('r','L')
+                    cStr = cStr.replace('o','R')
+                    cStr = cStr.replace('y','U')
+                    cStr = cStr.replace('w','D')
+                    cStr = cStr.replace('g','F')
+                    cStr = cStr.replace('b','B')
+                    cStr = cStr.split()
+                    cubeDict = {"L":"","R":"","F":"","B":"","U":"","D":""}
+                    row1 = list(cStr[3])
+                    row2 = list(cStr[4])
+                    row3 = list(cStr[5])
+                    cubeDict["U"] = cStr[0] + cStr[1] + cStr[2]
+                    cubeDict["D"] = cStr[6] + cStr[7] + cStr[8]
+                    cubeDict["L"] = row1[0] + row1[1] + row1[2] + row2[0] + row2[1] + row2[2] + row3[0] + row3[1] + row3[2]
+                    cubeDict["F"] = row1[3] + row1[4] + row1[5] + row2[3] + row2[4] + row2[5] + row3[3] + row3[4] + row3[5]
+                    cubeDict["R"] = row1[6] + row1[7] + row1[8] + row2[6] + row2[7] + row2[8] + row3[6] + row3[7] + row3[8]
+                    cubeDict["B"] = row1[9] + row1[10] + row1[11] + row2[9] + row2[10] + row2[11] + row3[9] + row3[10] + row3[11]
+                    cKStr = cubeDict["U"] + cubeDict["R"] + cubeDict["F"] + cubeDict["D"] + cubeDict["L"] + cubeDict["B"]
+                    sol = kociemba.solve(cKStr)
+                    X.write(cKStr + "\n")
+                    Y.write(sol + "\n")
+                    print(x + y * 100)
 
-    #Shuffle the Cube
-    #c(pc.Formula().random())
-    c("U' D2 L' R")
-    #c("F2 L' U L F' F2 U L2 U' F")
-
-    print(c)
-
-    S = Solver()
-
-    S.Solve(c)
-
-    print(c)
+        
+    print(time.time() - timeS)
     
 
 def testingSolver():
@@ -64,8 +89,10 @@ def testingSolver():
     solver = CFOPSolver(c)
 
     solution = solver.solve()
+
+    print(kociemba.solve('DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'))
     
 
 #UIMainTesting()
-#UIMain()
-testingSolver()
+UIMain()
+#testingSolver()
