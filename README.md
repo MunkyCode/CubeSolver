@@ -18,3 +18,6 @@ Creating an agent is really simple. All you need is a class that has a function 
 
 ## Jupyter Notebook
 [Here](https://colab.research.google.com/drive/1n_vuSKWAHGIn49ixkv6jYbnlynGgynDT?usp=sharing) is a link to my notebook on google Colab where I am using pytorch to create a neural network to solve a cube.
+
+## Advanced Agent Topic: Neural networks
+[Neural Networks applied to Rubik's cubes](https://docs.google.com/document/d/1M-0qf8ancvSsWB0M8nwtRzXe3SJTHzPWEc2WeaUs7q4/edit?usp=sharing)
