@@ -1,6 +1,6 @@
 import pycuber as pc
 from pycuber.solver import CFOPSolver
-from SimpleSolver.HumanSolver import HumanSolver as Solver
+from SimpleSolver.SimpleSolver import SimpleSolver as Solver
 from SimpleSolver.util import Solved
 import kociemba
 import time
@@ -86,13 +86,14 @@ def UIMain():
 def testingSolver():
     c = pc.Cube()
     c(pc.Formula().random())
-    solver = CFOPSolver(c)
+    solver = Solver()
 
-    solution = solver.solve()
+    print(c)
 
-    print(kociemba.solve('DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'))
-    
+    solver.Solve(c)
+
+    print(c)    
 
 #UIMainTesting()
-UIMain()
-#testingSolver()
+#UIMain()
+testingSolver()
